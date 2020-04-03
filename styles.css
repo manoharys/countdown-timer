@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Cuprum&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    background-color: rgba(128, 128, 128, 0.288);
+}
+
+h1 {
+    font-family: 'Cuprum', sans-serif;
+    text-align: center;
+    padding: 19px;
+    margin-top: 4rem;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+input {
+    position: absolute;
+    top: 270px;
+    padding: 1rem;
+    border:1px solid green;
+    font-weight: bold;
+}
+
+span{
+    border: 1px solid green;
+    padding: 1rem;
+    margin-right: 2rem;
+    text-align: center;
+    align-items: center;
+    
+}
+.days , .hours, .minutes, .seconds {
+    color:red;
+    font-weight: bold;
+}
