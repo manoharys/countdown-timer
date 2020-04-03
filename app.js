@@ -5,12 +5,23 @@ const clock = document.querySelector('.clock');
 let timeInterval;
 let stop = true;
 
+//Adding localStorage functionality of js to retain the timer-count
+let saved = localStorage.getItem("countdown") || false;
+if (saved) {
+    startClock(saved);
+    let inputValue = new Date(saved);
+    //console.log(inputValue);
+    endDate.valueAsDate = inputValue;
+}
+
+
 // adding eventListener whenever the changes made to the input..
 
 endDate.addEventListener('change', (e) => {
     // console.log(endDate.value);
     e.preventDefault();
     let temp = new Date(endDate.value);
+    localStorage.setItem("countdown", temp)
     clearInterval(timeInterval);
     startClock(temp);
     stop = false;
@@ -21,7 +32,7 @@ function startClock(d) {
         let timeLeft = endClock(d);
         //console.log(timeLeft.days);
         //Time stops if the input date is zero or negative
-        if(timeLeft.total <= 0){
+        if (timeLeft.total <= 0) {
             stop = false;
         }
         for (let pro in timeLeft) {
@@ -35,7 +46,7 @@ function startClock(d) {
     }
     if (stop) {
         timeInterval = setInterval(updateCounter, 1000);
-    }else{
+    } else {
         stop = false;
         clearInterval(timeInterval);
     }
